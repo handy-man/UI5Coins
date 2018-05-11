@@ -1,0 +1,35 @@
+<mvc:View controllerName="nathan.hand.coins.controller.mainView" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+			<Page title="{i18n>title}">
+				<content>
+                    <Table
+                           inset="false"
+                           items="{path: 'coins>/'}">
+                        <columns>
+                            <Column>
+                                <Text text="Name" />
+                            </Column>
+                            <Column>
+                                <Text text="Price" />
+                            </Column>
+                            <Column>
+                                <Text text="% change in 24H" />
+                            </Column>
+                            <Column>
+                                <Text text="Details" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{coins>name}" />
+                                    <Text text="£{coins>quotes/GBP/price}" />
+                                    <Text text="{coins>quotes/GBP/percent_change_24h}%" />
+                                    <Button text="Details" press="navToDetails" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+			</Page>
+</mvc:View>

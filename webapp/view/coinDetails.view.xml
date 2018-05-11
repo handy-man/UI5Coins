@@ -1,0 +1,40 @@
+<mvc:View controllerName="nathan.hand.coins.controller.coinDetails" xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns:lab="it.designfuture.chartjs" xmlns="sap.m">
+			<Page title="{i18n>title} - {coin>/name}({coin>/symbol})" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+                    <l:Grid class="sapUiSmallMarginTop"
+                            defaultSpan="L4 M6 S12">
+                        <HBox>
+                            <Image src="https://s2.coinmarketcap.com/static/img/coins/32x32/{coin>/id}.png"/>
+                            <Title level="H1" text="{coin>/name} ({coin>/symbol})" />
+                        </HBox>
+                        <VBox>
+                            <Text text="{coin>/quotes/USD/price} USD ({coin>/quotes/USD/percent_change_24h}%)"/>
+                            <Text text="{coin>/quotes/GBP/price} GBP ({coin>/quotes/GBP/percent_change_24h}%)"/>
+                            <Text text="{coin>/quotes/EUR/price} EUR ({coin>/quotes/EUR/percent_change_24h}%)"/>
+                        </VBox>
+                        <VBox>
+                            <Text text="Circulating Supply:  {coin>/circulating_supply}"/>
+                            <Text text="Total Supply:  {coin>/total_supply}"/>
+                            <Text text="Max Supply:  {coin>/max_supply}"/>
+                        </VBox>
+                    </l:Grid>
+                    <lab:LineChartJS
+                            id="line_chart"
+                            datasets="{projections>/datasets}"
+                            labels="{projections>/labels}"
+                            titleDisplay="true"
+                            titleText="{coin>/name} predictions"
+                            onLegendItemClick="onLegendItemClick"
+                            onLegendItemHover="onLegendItemHover"
+                            onClick="onClick"
+                            onHover="onHover"
+                            tooltipEnabled="true"
+                            onAnimationProgress="onAnimationProgress"
+                            onAnimationComplete="onAnimationComplete"
+                            showLines="true"
+                            spanGaps="true">
+                    </lab:LineChartJS>
+                </content>
+			</Page>
+</mvc:View>

@@ -1,0 +1,7 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="nathan.hand.coins.controller.app"
+	displayBlock="true"
+	xmlns="sap.m">
+	<App id="app"/>
+</mvc:View>
